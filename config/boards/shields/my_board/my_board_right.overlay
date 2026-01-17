@@ -1,14 +1,14 @@
-/* Right half overlay (trackball on right) */
+/* my_board_right.overlay (trackball on right) */
 #include "chary.dtsi"
 #include <dt-bindings/pinctrl/nrf-pinctrl.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
-/* 오른쪽은 매트릭스 변환에서 컬럼 6개 오프셋 */
+/* Right half uses column offset (COL6~COL11 in 12-col transform) */
 &default_transform {
     col-offset = <6>;
 };
 
-/* 오른쪽 컬럼 GPIO (COL0~COL5) */
+/* Right half column GPIOs (local COL0~COL5) */
 &kscan0 {
     diode-direction = "col2row";
     col-gpios =
@@ -20,7 +20,7 @@
         <&pro_micro 9 (GPIO_ACTIVE_HIGH)>;  /* COL5 */
 };
 
-/* ===== PMW3610 Trackball (SPI0) ===== */
+/* SPI0 pin control for PMW3610 */
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -42,7 +42,6 @@
 
 &spi0 {
     status = "okay";
-    compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -55,14 +54,14 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
 
-        /* required by pixart,pmw3610 binding */
+        /* PMW3610 binding-required */
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         zephyr,axis-x = <INPUT_REL_X>;
         zephyr,axis-y = <INPUT_REL_Y>;
     };
 };
 
-/* 트랙볼 입력 리스너 등록 (최상위 루트에 있어야 함) */
+/* Register device as ZMK input listener (must be at root) */
  / {
     trackball_listener {
         compatible = "zmk,input-listener";
