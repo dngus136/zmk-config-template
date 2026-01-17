@@ -26,114 +26,32 @@
   combos {
     compatible = "zmk,combos";
 
-    Next {
-      bindings = <&mkp MB4>;
-      key-positions = <37 38>;
-      layers = <0 1>;
-    };
+    Next { bindings = <&mkp MB4>; key-positions = <37 38>; layers = <0 1>; };
+    Previous { bindings = <&mkp MB5>; key-positions = <39 38>; layers = <0 1>; };
 
-    Previous {
-      bindings = <&mkp MB5>;
-      key-positions = <39 38>;
-      layers = <0 1>;
-    };
+    Parenthesis_L { bindings = <&kp LEFT_PARENTHESIS>; key-positions = <7 6>; layers = <0 2>; };
+    Parenthesis_R { bindings = <&kp RIGHT_PARENTHESIS>; key-positions = <8 7>; layers = <0 1>; };
 
-    Parenthesis_L {
-      bindings = <&kp LEFT_PARENTHESIS>;
-      key-positions = <7 6>;
-      layers = <0 2>;
-    };
+    Page_down { bindings = <&kp PAGE_DOWN>; key-positions = <45 46>; layers = <0 1>; };
+    Page_up { bindings = <&kp PAGE_UP>; key-positions = <46 47>; layers = <0 1>; };
 
-    Parenthesis_R {
-      bindings = <&kp RIGHT_PARENTHESIS>;
-      key-positions = <8 7>;
-      layers = <0 1>;
-    };
+    Hanja { bindings = <&kp LANG_HANJA>; key-positions = <24 12>; layers = <0 1>; };
 
-    Page_down {
-      bindings = <&kp PAGE_DOWN>;
-      key-positions = <45 46>;
-      layers = <0 1>;
-    };
+    Up { bindings = <&kp UP_ARROW>; key-positions = <22 34>; };
+    Down { bindings = <&kp DOWN_ARROW>; key-positions = <34 46>; };
+    Right { bindings = <&kp RIGHT_ARROW>; key-positions = <34 35>; };
+    Left { bindings = <&kp LEFT_ARROW>; key-positions = <33 34>; };
 
-    Page_up {
-      bindings = <&kp PAGE_UP>;
-      key-positions = <46 47>;
-      layers = <0 1>;
-    };
+    ScrollHold { bindings = <&mkp SCRL>; key-positions = <44 45>; layers = <0 2>; };
+    ScrollDrag { bindings = <&scroll_drag>; key-positions = <43 44>; layers = <0 1>; };
+    ScrollLeft { bindings = <&mkp SCRL_UP>; key-positions = <39 40>; layers = <0 1>; };
+    ScrollRight { bindings = <&mkp SCRL_DOWN>; key-positions = <40 41>; layers = <0 1>; };
+    ScrollClick { bindings = <&mkp MB3>; key-positions = <53 54>; };
 
-    Hanja {
-      bindings = <&kp LANG_HANJA>;
-      key-positions = <24 12>;
-      layers = <0 1>;
-    };
+    LeftShift { bindings = <&kp LEFT_SHIFT>; key-positions = <27 28>; layers = <0 1>; };
+    RightShift { bindings = <&kp RIGHT_SHIFT>; key-positions = <31 32>; layers = <0 1>; };
 
-    Up {
-      bindings = <&kp UP_ARROW>;
-      key-positions = <22 34>;
-    };
-
-    Down {
-      bindings = <&kp DOWN_ARROW>;
-      key-positions = <34 46>;
-    };
-
-    Right {
-      bindings = <&kp RIGHT_ARROW>;
-      key-positions = <34 35>;
-    };
-
-    Left {
-      bindings = <&kp LEFT_ARROW>;
-      key-positions = <33 34>;
-    };
-
-    ScrollHold {
-      bindings = <&mkp SCRL>;
-      key-positions = <44 45>;
-      layers = <0 2>;
-    };
-
-    ScrollDrag {
-      bindings = <&scroll_drag>;
-      key-positions = <43 44>;
-      layers = <0 1>;
-    };
-
-    ScrollLeft {
-      bindings = <&mkp SCRL_UP>;
-      key-positions = <39 40>;
-      layers = <0 1>;
-    };
-
-    ScrollRight {
-      bindings = <&mkp SCRL_DOWN>;
-      key-positions = <40 41>;
-      layers = <0 1>;
-    };
-
-    ScrollClick {
-      bindings = <&mkp MB3>;
-      key-positions = <53 54>;
-    };
-
-    LeftShift {
-      bindings = <&kp LEFT_SHIFT>;
-      key-positions = <27 28>;
-      layers = <0 1>;
-    };
-
-    RightShift {
-      bindings = <&kp RIGHT_SHIFT>;
-      key-positions = <31 32>;
-      layers = <0 1>;
-    };
-
-    Equal {
-      bindings = <&kp EQUAL>;
-      key-positions = <10 11>;
-      layers = <0 1>;
-    };
+    Equal { bindings = <&kp EQUAL>; key-positions = <10 11>; layers = <0 1>; };
   };
 
   behaviors {
@@ -157,70 +75,64 @@
   keymap {
     compatible = "zmk,keymap";
 
-    /* layer 0 */
     QWERTY {
       bindings = <
-        &mod_tap SQT ESC    &kp N1            &mod_tap F2 N2          &kp N3            &kp N4            &kp N5            &kp N6            &kp N7            &kp N8            &kp N9            &kp N0            &kp BACKSPACE
-        &kp TAB             &kp Q             &kp W              &kp E             &kp R             &kp T             &kp Y             &kp U             &kp I             &kp O             &kp P             &mod_tap BSLH MINUS
-        &kp LEFT_SHIFT      &kp A             &kp S              &kp D             &kp F             &kp G             &kp H             &kp J             &kp K             &kp L             &kp SEMI          &kp SQT
-        &kp LEFT_CONTROL    &kp Z             &kp X              &kp C             &kp V             &kp B             &kp N             &kp M             &kp COMMA         &kp DOT           &kp FSLH          &kp RIGHT_SHIFT
+        &mod_tap SQT ESC         &kp N1            &mod_tap F2 N2           &kp N3   &kp N4   &kp N5   &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp BACKSPACE
+        &kp TAB                  &kp Q             &kp W                    &kp E    &kp R    &kp T    &kp Y    &kp U    &kp I    &kp O    &kp P    &mod_tap BSLH MINUS
+        &kp LEFT_SHIFT           &kp A             &kp S                    &kp D    &kp F    &kp G    &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
+        &kp LEFT_CONTROL         &kp Z             &kp X                    &kp C    &kp V    &kp B    &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH &kp RIGHT_SHIFT
 
-                                             &layer_tap 1 SPACE  &layer_tap 3    &lgui_hanguel      &kp LEFT_Alt       &kp DELETE
-                                                                 &mkp LCLK         &mkp RCLK          &kp ENTER
+                                  &layer_tap 1 SPACE   &layer_tap 3 TAB   &lgui_hanguel  &kp LEFT_ALT  &kp DELETE
+                                                     &mkp LCLK           &mkp RCLK       &kp ENTER
       >;
     };
 
-    /* layer 1 */
     F_layers {
       bindings = <
-        &mod_tap ESC F1     &kp F2                  &kp F3             &kp F4                 &kp F5            &kp F6                                &kp F7            &kp F8            &kp F9            &kp F10           &kp F11           &mod_tap F12 BACKSPACE
-        &kp KP_NUMLOCK      &kp BACKSPACE           &kp N7             &kp N8                 &kp N9            &mod_tap MINUS PLUS                   &kp C_VOLUME_UP   &kp HOME          &kp UP            &kp END           &kp PRINTSCREEN   &kp SCROLLLOCK
-        &kp K_CALC          &kp DELETE              &kp NUMBER_4       &mod_tap LEFT_SHIFT N5 &kp NUMBER_6      &mod_tap KP_DIVIDE KP_MUlayer_tapIPLY &kp C_VOLUME_DOWN &kp LEFT          &kp DOWN          &kp RIGHT         &kp LS(LG(S))     &kp MINUS
-        &kp LCTRL           &mod_tap CLEAR NUMBER_0 &kp NUMBER_1       &kp NUMBER_2           &kp NUMBER_3      &kp CAPSLOCK                          &kp K_MUTE        &kp LEFT_BRACKET  &kp RIGHT_BRACKET &kp COMMA         &kp DOT           &trans
+        &mod_tap ESC F1          &kp F2            &kp F3             &kp F4            &kp F5            &kp F6              &kp F7            &kp F8            &kp F9            &kp F10           &kp F11           &mod_tap F12 BACKSPACE
+        &kp KP_NUMLOCK           &kp BACKSPACE     &kp N7             &kp N8            &kp N9            &mod_tap MINUS PLUS  &kp C_VOLUME_UP    &kp HOME          &kp UP            &kp END           &kp PRINTSCREEN   &kp SCROLLLOCK
+        &kp K_CALC               &kp DELETE        &kp NUMBER_4       &mod_tap LEFT_SHIFT N5 &kp NUMBER_6  &mod_tap KP_DIVIDE KP_MULTIPLY  &kp C_VOLUME_DOWN &kp LEFT          &kp DOWN          &kp RIGHT         &kp LS(LG(S))     &kp MINUS
+        &kp LCTRL                &mod_tap CLEAR NUMBER_0 &kp NUMBER_1  &kp NUMBER_2      &kp NUMBER_3      &kp CAPSLOCK         &kp K_MUTE         &kp LEFT_BRACKET  &kp RIGHT_BRACKET &kp COMMA         &kp DOT           &trans
 
-                                             &kp SPACE          &trans            &lgui_hanguel      &kp LEFT_Alt       &kp DELETE
-                                                               &mkp LCLK          &mkp RCLK          &kp ENTER
+                                  &kp SPACE           &trans            &lgui_hanguel     &kp LEFT_ALT      &kp DELETE
+                                                     &mkp LCLK          &mkp RCLK         &kp ENTER
       >;
     };
 
-    /* layer 2 */
     BT_layers {
       bindings = <
-        &trans  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans         &trans         &trans         &trans         &trans         &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &bt BT_CLR_ALL &trans         &trans         &trans         &trans         &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans         &trans         &bt BT_CLR     &trans         &trans         &bt BT_NXT &trans &trans  &trans  &trans  &trans
+        &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &bt BT_CLR_ALL &trans       &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans        &trans        &bt BT_CLR    &trans        &trans        &bt BT_NXT &trans &trans  &trans  &trans  &trans
 
-                                &trans        &trans         &trans         &trans         &trans
-                                              &trans         &trans         &trans
+                                 &trans  &trans  &trans  &trans  &trans
+                                         &trans  &trans  &trans
       >;
     };
 
-    /* layer 3 */
     scroll_layers {
       bindings = <
-        &trans  &kp C_TAB       &kp C_S_TAB    &kp HOME        &kp END         &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &kp PAGE_UP     &kp PAGE_DOWN  &kp UP_ARROW    &kp DOWN_ARROW  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &kp LEFT        &kp RIGHT      &kp ESC         &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans          &trans         &trans          &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp C_TAB      &kp C_S_TAB   &kp HOME      &kp END        &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp PAGE_UP    &kp PAGE_DOWN &kp UP_ARROW  &kp DOWN_ARROW &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp LEFT       &kp RIGHT     &kp ESC       &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans         &trans        &trans        &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
 
-                                &trans        &mo snipe_layers &trans         &trans  &trans
-                                              &mkp LCLK        &mkp RCLK       &trans
+                                 &trans  &mo 4   &trans  &trans  &trans
+                                         &mkp LCLK &mkp RCLK &trans
       >;
     };
 
-    /* layer 4 */
     snipe_layers {
       bindings = <
-        &trans  &trans      &trans       &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &mkp MB3    &scroll_drag &mkp RCLK  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &kp ESC     &trans       &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans      &trans       &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans   &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &mkp MB3 &scroll_drag &mkp RCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp ESC  &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans   &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 
-                                &trans     &trans     &trans    &trans   &trans
-                                           &mkp LCLK  &mkp RCLK  &trans
+                                 &trans  &trans  &trans  &trans  &trans
+                                         &mkp LCLK &mkp RCLK &trans
       >;
     };
   };
 };
-
