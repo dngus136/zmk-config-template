@@ -113,7 +113,7 @@
 
     scroll_layers {
       bindings = <
-        &trans  &kp C_TAB      &kp C_S_TAB   &kp HOME      &kp END        &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp LC(TAB)      &kp LC(LS(TAB))   &kp HOME      &kp END        &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &kp PAGE_UP    &kp PAGE_DOWN &kp UP_ARROW  &kp DOWN_ARROW &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &kp LEFT       &kp RIGHT     &kp ESC       &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans         &trans        &trans        &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
