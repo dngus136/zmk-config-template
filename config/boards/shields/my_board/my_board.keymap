@@ -42,7 +42,7 @@
     Left { bindings = <&kp LEFT_ARROW>; key-positions = <33 34>; };
 
     ScrollHold { bindings = <&kp SPACE>; key-positions = <44 45>; layers = <0 2>; };
-    ScrollDrag { bindings = <&scroll_drag>; key-positions = <43 44>; layers = <0 1>; };
+    ScrollDrag { bindings = <&kp ENTER>; key-positions = <43 44>; layers = <0 1>; };
     ScrollLeft { bindings = <&kp LEFT_ARROW>; key-positions = <39 40>; layers = <0 1>; };
     ScrollRight { bindings = <&kp RIGHT_ARROW>; key-positions = <40 41>; layers = <0 1>; };
     ScrollClick { bindings = <&kp ENTER>; key-positions = <53 54>; };
@@ -59,15 +59,6 @@
       label = "LGUI_HANGUEL";
       #binding-cells = <0>;
       bindings = <&kp LGUI>, <&kp LANG_HANGEUL>;
-    };
-
-    scroll_drag: scroll_drag {
-      compatible = "zmk,behavior-hold-tap";
-      label = "SCROLL_DRAG";
-      #binding-cells = <0>;
-      flavor = "hold-preferred";
-      tapping-term-ms = <200>;
-      bindings = <&kp SPACE &kp ENTER>;
     };
   };
 
@@ -125,7 +116,7 @@
     snipe_layers {
       bindings = <
         &trans  &trans   &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &kp ENTER &scroll_drag &kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp ENTER &kp ENTER &kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &kp ESC  &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans   &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 
