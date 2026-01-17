@@ -82,7 +82,7 @@
         &kp LEFT_SHIFT           &kp A             &kp S                    &kp D    &kp F    &kp G    &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
         &kp LEFT_CONTROL         &kp Z             &kp X                    &kp C    &kp V    &kp B    &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH &kp RIGHT_SHIFT
 
-                                  &layer_tap 1 SPACE   &layer_tap 3 TAB   &lgui_hanguel  &kp LEFT_ALT  &kp DELETE
+                                  &lt 1 SPACE   &lt 3 TAB   &lgui_hanguel  &kp LEFT_ALT  &kp DELETE
                                                      &mkp LCLK           &mkp RCLK       &kp ENTER
       >;
     };
