@@ -18,8 +18,7 @@
       label = "TO2_MACRO";
       #binding-cells = <0>;
       bindings =
-        <&to 2>,
-        <&macro_wait_time 30>;
+        <&to 2 &macro_wait_time 30>;
     };
   };
 
@@ -68,7 +67,7 @@
       #binding-cells = <0>;
       flavor = "hold-preferred";
       tapping-term-ms = <200>;
-      bindings = <&kp SPACE>, <&kp ENTER>;
+      bindings = <&kp SPACE &kp ENTER>;
     };
   };
 
