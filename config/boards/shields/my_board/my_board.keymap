@@ -124,3 +124,103 @@
     };
 
     RightShift {
+      bindings = <&kp RIGHT_SHIFT>;
+      key-positions = <31 32>;
+      layers = <0 1>;
+    };
+
+    Equal {
+      bindings = <&kp EQUAL>;
+      key-positions = <10 11>;
+      layers = <0 1>;
+    };
+  };
+
+  behaviors {
+    lgui_hanguel: lgui_hanguel {
+      compatible = "zmk,behavior-tap-dance";
+      label = "LGUI_HANGUEL";
+      #binding-cells = <0>;
+      bindings = <&kp LGUI>, <&kp LANG_HANGEUL>;
+    };
+
+    scroll_drag: scroll_drag {
+      compatible = "zmk,behavior-hold-tap";
+      label = "SCROLL_DRAG";
+      #binding-cells = <0>;
+      flavor = "hold-preferred";
+      tapping-term-ms = <200>;
+      bindings = <&mkp SCRL>, <&mkp LCLK>;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    /* layer 0 */
+    QWERTY {
+      bindings = <
+        &mt SQT ESC         &kp N1            &mt F2 N2          &kp N3            &kp N4            &kp N5            &kp N6            &kp N7            &kp N8            &kp N9            &kp N0            &kp BACKSPACE
+        &kp TAB             &kp Q             &kp W              &kp E             &kp R             &kp T             &kp Y             &kp U             &kp I             &kp O             &kp P             &mt BSLH MINUS
+        &kp LEFT_SHIFT      &kp A             &kp S              &kp D             &kp F             &kp G             &kp H             &kp J             &kp K             &kp L             &kp SEMI          &kp SQT
+        &kp LEFT_CONTROL    &kp Z             &kp X              &kp C             &kp V             &kp B             &kp N             &kp M             &kp COMMA         &kp DOT           &kp FSLH          &kp RIGHT_SHIFT
+
+                                             &lt F_layers SPACE  &lt scroll_layers  &lgui_hanguel     &kp LEFT_ALT       &kp DELETE
+                                                               &mkp LCLK         &mkp RCLK          &kp ENTER
+      >;
+    };
+
+    /* layer 1 */
+    F_layers {
+      bindings = <
+        &mt ESC F1          &kp F2            &kp F3             &kp F4            &kp F5            &kp F6            &kp F7            &kp F8            &kp F9            &kp F10           &kp F11           &mt F12 BACKSPACE
+        &kp KP_NUMLOCK      &kp BACKSPACE     &kp N7             &kp N8            &kp N9            &mt MINUS PLUS     &kp C_VOLUME_UP    &kp HOME          &kp UP            &kp END           &kp PRINTSCREEN   &kp SCROLLLOCK
+        &kp K_CALC          &kp DELETE        &kp NUMBER_4       &mt LEFT_SHIFT N5 &kp NUMBER_6      &mt KP_DIVIDE KP_MULTIPLY &kp C_VOLUME_DOWN &kp LEFT          &kp DOWN          &kp RIGHT         &kp LS(LG(S))     &kp MINUS
+        &kp LCTRL           &mt CLEAR NUMBER_0&kp NUMBER_1       &kp NUMBER_2      &kp NUMBER_3      &kp CAPSLOCK       &kp K_MUTE         &kp LEFT_BRACKET  &kp RIGHT_BRACKET &kp COMMA         &kp DOT           &trans
+
+                                             &kp SPACE          &trans            &lgui_hanguel      &kp LEFT_ALT       &kp DELETE
+                                                               &mkp LCLK          &mkp RCLK          &kp ENTER
+      >;
+    };
+
+    /* layer 2 */
+    BT_layers {
+      bindings = <
+        &trans  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans         &trans         &trans         &trans         &trans         &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &bt BT_CLR_ALL &trans         &trans         &trans         &trans         &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans         &trans         &bt BT_CLR     &trans         &trans         &bt BT_NXT &trans &trans  &trans  &trans  &trans
+
+                                &trans        &trans         &trans         &trans         &trans
+                                              &trans         &trans         &trans
+      >;
+    };
+
+    /* layer 3 */
+    scroll_layers {
+      bindings = <
+        &trans  &kp C_TAB       &kp C_S_TAB    &kp HOME        &kp END         &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp PAGE_UP     &kp PAGE_DOWN  &kp UP_ARROW    &kp DOWN_ARROW  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp LEFT        &kp RIGHT      &kp ESC         &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans          &trans         &trans          &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+
+                                &trans        &mo snipe_layers &trans         &trans  &trans
+                                              &mkp LCLK        &mkp RCLK       &trans
+      >;
+    };
+
+    /* layer 4 */
+    snipe_layers {
+      bindings = <
+        &trans  &trans      &trans       &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &mkp MB3    &scroll_drag &mkp RCLK  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp ESC     &trans       &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans      &trans       &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+
+                                &trans     &trans     &trans    &trans   &trans
+                                           &mkp LCLK  &mkp RCLK  &trans
+      >;
+    };
+  };
+};
+
