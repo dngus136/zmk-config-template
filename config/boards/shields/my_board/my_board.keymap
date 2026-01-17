@@ -26,8 +26,8 @@
   combos {
     compatible = "zmk,combos";
 
-    Next { bindings = <&mkp MB4>; key-positions = <37 38>; layers = <0 1>; };
-    Previous { bindings = <&mkp MB5>; key-positions = <39 38>; layers = <0 1>; };
+    Next { bindings = <&kp PAGE_DOWN>; key-positions = <37 38>; layers = <0 1>; };
+    Previous { bindings = <&kp PAGE_UP>; key-positions = <39 38>; layers = <0 1>; };
 
     Parenthesis_L { bindings = <&kp LEFT_PARENTHESIS>; key-positions = <7 6>; layers = <0 2>; };
     Parenthesis_R { bindings = <&kp RIGHT_PARENTHESIS>; key-positions = <8 7>; layers = <0 1>; };
@@ -42,11 +42,11 @@
     Right { bindings = <&kp RIGHT_ARROW>; key-positions = <34 35>; };
     Left { bindings = <&kp LEFT_ARROW>; key-positions = <33 34>; };
 
-    ScrollHold { bindings = <&mkp SCRL>; key-positions = <44 45>; layers = <0 2>; };
+    ScrollHold { bindings = <&kp SPACE>; key-positions = <44 45>; layers = <0 2>; };
     ScrollDrag { bindings = <&scroll_drag>; key-positions = <43 44>; layers = <0 1>; };
-    ScrollLeft { bindings = <&mkp SCRL_UP>; key-positions = <39 40>; layers = <0 1>; };
-    ScrollRight { bindings = <&mkp SCRL_DOWN>; key-positions = <40 41>; layers = <0 1>; };
-    ScrollClick { bindings = <&mkp MB3>; key-positions = <53 54>; };
+    ScrollLeft { bindings = <&kp LEFT_ARROW>; key-positions = <39 40>; layers = <0 1>; };
+    ScrollRight { bindings = <&kp RIGHT_ARROW>; key-positions = <40 41>; layers = <0 1>; };
+    ScrollClick { bindings = <&kp ENTER>; key-positions = <53 54>; };
 
     LeftShift { bindings = <&kp LEFT_SHIFT>; key-positions = <27 28>; layers = <0 1>; };
     RightShift { bindings = <&kp RIGHT_SHIFT>; key-positions = <31 32>; layers = <0 1>; };
