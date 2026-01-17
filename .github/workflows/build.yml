@@ -49,3 +49,9 @@ jobs:
         with:
           name: firmware
           path: charybdis_nice_nano_v2.uf2
+
+include:
+  - board: nice_nano_v2
+    shield: my_board_left
+  - board: nice_nano_v2
+    shield: my_board_right
