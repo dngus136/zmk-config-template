@@ -101,13 +101,13 @@
     };
 
     ScrollLeft {
-      bindings = <&msc SCRL_LEFT>;
+      bindings = <&mkp SCRL_UP>;
       key-positions = <39 40>;
       layers = <0 1>;
     };
 
     ScrollRight {
-      bindings = <&msc SCRL_RIGHT>;
+      bindings = <&mkp SCRL_DOWN>;
       key-positions = <40 41>;
       layers = <0 1>;
     };
