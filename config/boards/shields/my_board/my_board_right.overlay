@@ -1,39 +1,38 @@
+/* Right half overlay (trackball on right) */
 #include "chary.dtsi"
 
-/* 오른쪽은 왼쪽보다 키 포지션이 뒤로 밀리므로 col-offset */
+/* 오른쪽은 매트릭스 변환에서 컬럼 6개 오프셋 */
 &default_transform {
     col-offset = <6>;
 };
 
-/* 오른쪽 half의 col 핀 (왼쪽과 동일한 COL0~COL5) */
+/* 오른쪽 컬럼 GPIO (COL0~COL5) */
 &kscan0 {
     diode-direction = "col2row";
     col-gpios =
-        <&pro_micro 4 (GPIO_ACTIVE_HIGH)>,  /* COL0 */
-        <&pro_micro 5 (GPIO_ACTIVE_HIGH)>,  /* COL1 */
-        <&pro_micro 6 (GPIO_ACTIVE_HIGH)>,  /* COL2 */
-        <&pro_micro 7 (GPIO_ACTIVE_HIGH)>,  /* COL3 */
-        <&pro_micro 8 (GPIO_ACTIVE_HIGH)>,  /* COL4 */
-        <&pro_micro 9 (GPIO_ACTIVE_HIGH)>;  /* COL5 */
+        <&pro_micro 4 (GPIO_ACTIVE_HIGH)>, /* COL0 */
+        <&pro_micro 5 (GPIO_ACTIVE_HIGH)>, /* COL1 */
+        <&pro_micro 6 (GPIO_ACTIVE_HIGH)>, /* COL2 */
+        <&pro_micro 7 (GPIO_ACTIVE_HIGH)>, /* COL3 */
+        <&pro_micro 8 (GPIO_ACTIVE_HIGH)>, /* COL4 */
+        <&pro_micro 9 (GPIO_ACTIVE_HIGH)>; /* COL5 */
 };
 
-/* 트랙볼 SPI 핀 설정 */
+/* ===== PMW3610 Trackball (SPI0) ===== */
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
-            psels =
-                <NRF_PSEL(SPIM_SCK,  0, 8)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                <NRF_PSEL(SPIM_MISO, 0, 17)>;
+            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 17)>; /* 3-wire SPI */
         };
     };
 
     spi0_sleep: spi0_sleep {
         group1 {
-            psels =
-                <NRF_PSEL(SPIM_SCK,  0, 8)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                <NRF_PSEL(SPIM_MISO, 0, 17)>;
+            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 17)>;
             low-power-enable;
         };
     };
@@ -42,11 +41,11 @@
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
-
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
 
+    /* CS: P0.20 */
     cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
 
     trackball: trackball@0 {
@@ -55,17 +54,19 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
 
+        /* IRQ/MOTION: P0.06 */
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
-        /* 레이어 번호는 네 keymap의 layer index와 맞춰야 함 */
+        /* 옵션들 (드라이버가 지원 안 하면 빌드 에러날 수 있음)
+         * 에러 나면 아래 2~3줄을 주석 처리해도 트랙볼 자체는 동작 가능 */
         scroll-layers = <1>;
-        /* snipe-layers = <>; */
         automouse-layer = <5>;
+        /* snipe-layers = <4>; */
     };
 };
 
-/* 트랙볼 이벤트를 ZMK 입력으로 전달 */
- / {
+/* 트랙볼을 입력 장치로 등록 */
+&{/} {
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
