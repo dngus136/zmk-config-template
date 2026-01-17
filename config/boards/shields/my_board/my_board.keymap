@@ -91,7 +91,7 @@
       bindings = <
         &mod_tap ESC F1          &kp F2            &kp F3             &kp F4            &kp F5            &kp F6              &kp F7            &kp F8            &kp F9            &kp F10           &kp F11           &mod_tap F12 BACKSPACE
         &kp KP_NUMLOCK           &kp BACKSPACE     &kp N7             &kp N8            &kp N9            &mod_tap MINUS PLUS  &kp C_VOLUME_UP    &kp HOME          &kp UP            &kp END           &kp PRINTSCREEN   &kp SCROLLLOCK
-        &kp K_CALC               &kp DELETE        &kp NUMBER_4       &mod_tap LEFT_SHIFT N5 &kp NUMBER_6  &mod_tap KP_DIVIDE KP_MULTIPLY  &kp C_VOLUME_DOWN &kp LEFT          &kp DOWN          &kp RIGHT         &kp LS(LG(S))     &kp MINUS
+        &kp K_CALC               &kp DELETE        &kp NUMBER_4       &mod_tap LEFT_SHIFT N5 &kp NUMBER_6  &mod_tap KP_DIVIDE KP_MULTIPLY  &kp C_VOLUME_DOWN &kp LEFT          &kp DOWN          &kp RIGHT         &kp S     &kp MINUS
         &kp LCTRL                &mod_tap CLEAR NUMBER_0 &kp NUMBER_1  &kp NUMBER_2      &kp NUMBER_3      &kp CAPSLOCK         &kp K_MUTE         &kp LEFT_BRACKET  &kp RIGHT_BRACKET &kp COMMA         &kp DOT           &trans
 
                                   &kp SPACE           &trans            &lgui_hanguel     &kp LEFT_ALT      &kp DELETE
