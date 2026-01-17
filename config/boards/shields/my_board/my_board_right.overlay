@@ -63,7 +63,6 @@
 };
 
 /* Register device as ZMK input listener (must be at root) */
- /delete-node/ trackball_listener; /* 이 줄도 에러나면 삭제해도 됨 */
 
  / {
     trackball_listener {
