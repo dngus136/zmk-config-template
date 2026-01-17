@@ -41,7 +41,9 @@
 };
 
 &spi0 {
-    status = "okay";
+    status = "okay";                 /* ✅ 추가 */
+    compatible = "nordic,nrf-spim";  /* ✅ old처럼 맞춤(안전) */
+
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -54,7 +56,6 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
 
-        /* PMW3610 binding-required */
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         zephyr,axis-x = <INPUT_REL_X>;
         zephyr,axis-y = <INPUT_REL_Y>;
@@ -62,6 +63,10 @@
 };
 
 /* Register device as ZMK input listener (must be at root) */
+ /delete-node/ &{trackball_listener}; /* 혹시 중복 선언 방지용(있어도 무해) */
+ /delete-node/ &{trackball_listener0}; /* (없으면 그냥 무시될 가능성 큼) */
+
+/* ✅ 공백 없이 루트 노드 선언 */
  / {
     trackball_listener {
         compatible = "zmk,input-listener";
